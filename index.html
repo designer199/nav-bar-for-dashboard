@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="css/header.css">
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+</head>
+<body>
+    <nav class="navbar navbar-default">
+        <div class="container-fluid">
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">Fleet247</a>
+          </div>
+      
+        
+            <div>
+              <!-- <div style="float:left; margin-left:70%">
+                <a href="{{ route('operator.query.callback') }}"><button class="custom-submit-btn btn btn-default">Request Callback</button></a>
+              </div> -->
+              <div style="float:left; margin-left:80%">
+                <a href="{{ route('operator.query.support') }}"><button class="custom-submit-btn btn btn-default">Support</button></a>
+              </div>
+              <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+                  <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                      <span class="caret"></span>
+                    </a>
+                    <ul class="dropdown-menu">
+                      <li>
+                        <a href="{{ route('operator.profile') }}">Profile</a>
+                      </li>
+                      <li>
+                        <a href="{{ route('operator.changePassword') }}">Change Password</a>
+                      </li>
+                      <li>
+                        <a href="{{ route('operator.logout') }}">Logout</a>
+                      </li>
+                    </ul>
+                  </li>
+                </ul>
+              </div>
+            </div>
+        
+        </div>
+      </nav>
+      
+<div class="container head-2">
+  <ul class="list-group">
+    <li class="set-active-tab {{ session('active_tab') == 'Dashboard' ? 'li-active' : '' }}" id="Dashboard">
+      <a href="{{ route('operator.dashboard') }}">Dashboard</a>
+    </li>
+    <li class="set-active-tab dropdown {{ session('active_tab') == 'Self-Booking' ? 'li-active' : '' }}" id="Self-Booking">
+      <a href="#" class="dropdown-toggle " data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Self Booking
+        <span class="caret"></span>
+      </a>
+      <ul class="dropdown-menu">
+        <li>
+          <a href="{{ route('operator.create-self-booking') }}">Add Booking</a>
+        </li>
+        <li>
+          <a href="{{ route('operator.self-bookings-active-unassigned') }}">Active Unassigned</a>
+        </li>
+        <li>
+          <a href="{{ route('operator.self-bookings-active-assigned') }}">Active Assigned</a>
+        </li>
+        <li>
+          <a href="{{ route('operator.self-bookings-archived-unassigned') }}">Archived Unassigned</a>
+        </li>
+        <li>
+          <a href="{{ route('operator.self-bookings-archived-assigned') }}">Archived Assigned</a>
+        </li>
+        <li>
+          <a href="{{ route('operator.self-bookings-cancelled') }}">Cancelled</a>
+        </li>
+      </ul>
+    </li>
+    <li class="set-active-tab dropdown {{ session('active_tab') == 'Client' ? 'li-active' : '' }}" id="Client">
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Client
+        <span class="caret"></span>
+      </a>
+      <ul class="dropdown-menu">
+        <li>
+          <a href="{{ route('operator.create-client') }}">Add Client</a>
+        </li>
+        <li>
+          <a href="{{ route('operator.clients') }}">View Clients</a>
+        </li>
+      </ul>
+    </li>
+    <li class="set-active-tab dropdown {{ session('active_tab') == 'Driver' ? 'li-active' : '' }}" id="Driver">
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Driver
+        <span class="caret"></span>
+      </a>
+      <ul class="dropdown-menu">
+        <li>
+          <a href="{{ route('operator.create-driver') }}">Add Driver</a>
+        </li>
+        <li>
+          <a href="{{ route('operator.drivers') }}">View Driver</a>
+        </li>
+      </ul>
+    </li>
+    <li class="set-active-tab dropdown {{ session('active_tab') == 'Taxi' ? 'li-active' : '' }}" id="Taxi">
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Taxis
+        <span class="caret"></span>
+      </a>
+      <ul class="dropdown-menu">
+        <li>
+          <a href="{{ route('operator.create-taxi') }}">Add Vehicle</a>
+        </li>
+        <li>
+          <a href="{{ route('operator.taxis') }}">View Vehicle</a>
+        </li>
+      </ul>
+    </li>
+    <li class="set-active-tab dropdown {{ session('active_tab') == 'Billing' ? 'li-active' : '' }}" id="Billing">
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Billing
+        <span class="caret"></span>
+      </a>
+      <ul class="dropdown-menu">
+        <li>
+          <a href="{{ route('operator.self-booking-unbilled-invoice') }}">Unbilled</a>
+        </li>
+        <li>
+          <a href="{{ route('operator.self-booking-unpaid-bill') }}">Billed: Unpaid</a>
+        </li>
+        <li>
+          <a href="{{ route('operator.self-booking-paid-bill') }}">Billed: Paid</a>
+        </li>
+        <li role="separator" class="divider"></li>
+        <li>
+          <a href="{{ route('operator.client-self-billing') }}">Client Self Billing</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+
+<script src="/js/jquery-3.2.1.min.js"></script>
+    <script src="/js/script.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
+    <script defer src="https://use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
+    <script src="/js/select2.min.js"></script>
+  <script type="text/javascript" src="/js/moment.js"></script>
+<script type="text/javascript" src="/js/transition.js"></script>
+<script type="text/javascript" src="/js/collapse.js"></script>
+<script type="text/javascript" src="/js/bootstrap-datetimepicker.min.js"></script>
+</body>
+</html>
