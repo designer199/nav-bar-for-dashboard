@@ -13,3 +13,5 @@
  
  * I need to find a way of adding node modules/npm dependencies as gitignore files so that the node modules are not a potential security vulnerability
  
+ 
+ ![](d.gif)
